@@ -28,7 +28,7 @@ https://drive.google.com/uc\?export\=download\&id\=1VBdbaggKbUGTEBucpgcSR5ZEFt4P
 tar xz && chmod 744 deployer
 ```
 
-Log in before accessing the private GitLab repositories,
+Log in before accessing the private Docker Hub,
 
 ```
 docker login -u artisandigitalasia
