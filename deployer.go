@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"os/exec"
-	"log"
 )
 
 func ping(w http.ResponseWriter, req *http.Request) {
@@ -23,11 +23,11 @@ func deploy(w http.ResponseWriter, req *http.Request) {
 		branch := req.Header.Get("branch")
 		log.Printf("/deploy %s:%s\n", project, branch)
 		if project != "" && branch != "" {
-			cmd := exec.Command("/bin/sh", "-c", fmt.Sprintf("docker contianer stop %s", project))
+			cmd := exec.Command("/bin/sh", "-c", fmt.Sprintf("sudo docker contianer stop %s", project))
 			stdout, _ := cmd.Output()
 			log.Println(string(stdout))
 
-			cmd = exec.Command("/bin/sh", "-c", fmt.Sprintf("docker pull %s/%s:%s", account, project, branch))
+			cmd = exec.Command("/bin/sh", "-c", fmt.Sprintf("sudo docker pull %s/%s:%s", account, project, branch))
 			stdout, err := cmd.Output()
 			if err != nil {
 				log.Println(err)
@@ -35,7 +35,7 @@ func deploy(w http.ResponseWriter, req *http.Request) {
 			}
 			log.Println((string(stdout)))
 
-			cmd = exec.Command("/bin/sh", "-c", fmt.Sprintf("docker run -d --rm --name %s %s/%s:%s", project, account, project, branch))
+			cmd = exec.Command("/bin/sh", "-c", fmt.Sprintf("sudo docker run -d --rm --name %s %s/%s:%s", project, account, project, branch))
 			stdout, err = cmd.Output()
 			if err != nil {
 				log.Println(err)
