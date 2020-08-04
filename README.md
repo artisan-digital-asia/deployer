@@ -50,5 +50,5 @@ curl -X POST \$IP_OF_THE_VM:8080/deploy \
 
 ### Usange
 ```
-DOCKERHUB_ACCOUNT=youraccount PORT=999 SECRET=yoursecret /Users/nat/Downloads/deployer
+DOCKERHUB_ACCOUNT=youraccount PORT=999 SECRET=yoursecret /path/to/deployer
 ```
