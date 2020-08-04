@@ -34,7 +34,15 @@ Log in to Docker Hub before accessing private repositories,
 sudo docker login -u artisandigitalasia
 ```
 
-Run, `./deployer`
+### Usage
+
+Run, `./deployer` or apply environment variable
+
+```
+DOCKERHUB_ACCOUNT=youraccount PORT=9999 SECRET=yoursecret /path/to/deployer
+```
+
+
 
 ### Setting up the Jenkins
 
@@ -47,8 +55,3 @@ curl -X POST \$IP_OF_THE_VM:8080/deploy \
 -H "branch:$BRANCH"
 ```
 
-
-### Usange
-```
-DOCKERHUB_ACCOUNT=youraccount PORT=999 SECRET=yoursecret /path/to/deployer
-```
