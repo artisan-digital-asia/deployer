@@ -46,3 +46,9 @@ curl -X POST \$IP_OF_THE_VM:8080/deploy \
 -H "project:$PROJECT" \
 -H "branch:$BRANCH"
 ```
+
+
+### Usange
+```
+DOCKERHUB_ACCOUNT=youraccount PORT=999 SECRET=yoursecret /Users/nat/Downloads/deployer
+```
